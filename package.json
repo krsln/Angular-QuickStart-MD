@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "toServe": "ng serve --port 4224 --open",
-    "toBuild": "ng build --prod --base-href /WriteName/",
+    "toBuild": "ng build --prod --base-href /NgQuickStartMDnpm /",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
