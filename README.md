@@ -38,6 +38,24 @@ Run `npm run toServe` to run the project.
 Run `npm run toBuild` to build the project.
 The build artifacts will be stored in the `dist/` directory.  
 
+## Update CLI and Core
+
+    ng update @angular/cli --allow-dirty
+    ng update @angular/core --allow-dirty
+
+## ******
+    npm cache verify 
+    npm cache clean --force
+    
+    npm install -g npm 
+    npm update -g npm 
+    
+    npm install -g @angular/cli
+    
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
