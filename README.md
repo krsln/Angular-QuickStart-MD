@@ -25,6 +25,8 @@ https://github.com/mdbootstrap/Angular-Bootstrap-with-Material-Design#demo
 
 ## angular.json
 
+{ "projects": { "NgProjectName": { "architect": { "build": { "options": {
+
      "styles": [
         "node_modules/@fortawesome/fontawesome-free/css/all.css",
         "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
@@ -39,6 +41,8 @@ https://github.com/mdbootstrap/Angular-Bootstrap-with-Material-Design#demo
 
 ## package.json
 
+"scripts": {
+
     "toServe": "ng serve --port 4200 --open",
     "toBuild": "ng build --prod --base-href /NgQuickStart/",
  
@@ -49,7 +53,7 @@ Run `npm run toServe` to run the project.
 Run `npm run toBuild` to build the project.
 The build artifacts will be stored in the `dist/` directory.  
 
-## Update CLI and Core
+## Update CLI & Core
 
     ng update @angular/cli --allow-dirty
     ng update @angular/core --allow-dirty
