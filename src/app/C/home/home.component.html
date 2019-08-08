@@ -1,0 +1,433 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">...</h5>
+
+          <button type="button" mdbBtn color="primary" mdbWavesEffect>Primary</button>
+          <button type="button" mdbBtn color="secondary" mdbWavesEffect>Secondary</button>
+          <button type="button" mdbBtn color="success" mdbWavesEffect>Success</button>
+          <button type="button" mdbBtn color="danger" mdbWavesEffect>Danger</button>
+          <button type="button" mdbBtn color="warning" mdbWavesEffect>Warning</button>
+          <button type="button" mdbBtn color="info" mdbWavesEffect>Info</button>
+          <button type="button" mdbBtn color="light" mdbWavesEffect>Light</button>
+          <button type="button" mdbBtn color="dark" mdbWavesEffect>Dark</button>
+          <button type="button" mdbBtn color="link">Link</button>
+
+          <div class="btn-group" mdbDropdown>
+            <button type="button" mdbBtn color="danger" class="waves-light" mdbWavesEffect>Action</button>
+            <button type="button" mdbDropdownToggle mdbBtn color="danger"
+                    class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
+                    mdbWavesEffect></button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+          <div class="dropdown" mdbDropdown>
+
+            <button mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light" type="button"
+                    mdbWavesEffect>
+              Dropdown primary
+            </button>
+
+            <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+
+          <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()"
+                  mdbWavesEffect>Launch demo modal
+          </button>
+          <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+               aria-labelledby="myBasicModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                          (click)="basicModal.hide()" mdbWavesEffect>Close
+                  </button>
+                  <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save
+                    changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ng-template #hoverImgTemp><div [innerHtml]="hoverImg"></div></ng-template>
+          <a mdbBtn color="primary" placement="bottom" [mdbPopover]="hoverImgTemp" mdbWavesEffect triggers="hover">Hover me</a>
+
+          <ng-template #clickImgTemp><div [innerHtml]="clickImg"></div></ng-template>
+          <a mdbBtn color="indigo" placement="bottom" [mdbPopover]="clickImgTemp" mdbWavesEffect triggers="click">Click me</a>
+
+          <ng-template #smallHoverImgTemp><div [innerHtml]="smallHoverImg"></div></ng-template>
+          <a mdbBtn color="dark-green" placement="bottom" [mdbPopover]="smallHoverImgTemp" mdbWavesEffect triggers="hover">Hover me</a>
+
+          <ng-template #smallClickImgTemp><div [innerHtml]="smallClickImg"></div></ng-template>
+          <a mdbBtn color="purple" placement="bottom" [mdbPopover]="smallClickImgTemp" mdbWavesEffect triggers="click">Click me</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-danger" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-info" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-border text-dark" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <div class="alert alert-primary" role="alert">
+            This is a primary alert—check it out!
+          </div>
+          <div class="alert alert-secondary" role="alert">
+            This is a secondary alert—check it out!
+          </div>
+          <div class="alert alert-success" role="alert">
+            This is a success alert—check it out!
+          </div>
+          <div class="alert alert-danger" role="alert">
+            This is a danger alert—check it out!
+          </div>
+          <div class="alert alert-warning" role="alert">
+            This is a warning alert—check it out!
+          </div>
+          <div class="alert alert-info" role="alert">
+            This is a info alert—check it out!
+          </div>
+          <div class="alert alert-light" role="alert">
+            This is a light alert—check it out!
+          </div>
+          <div class="alert alert-dark" role="alert">
+            This is a dark alert—check it out!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <mdb-card style="background-image: url('https://mdbootstrap.com/img/Photos/Others/gradient1.jpg')">
+            <div class="text-white text-center py-5 px-4 my-5">
+              <div>
+                <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Create your beautiful website with
+                  MDBootstrap</strong></h2>
+                <p class="mx-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat,
+                  laboriosam,
+                  voluptatem,
+                  optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos. Odit
+                  sed qui,
+                  dolorum!
+                </p>
+                <a mdbBtn color="white" outline="true" class="waves-light" mdbWavesEffect>
+                  <mdb-icon fas icon="clone" class="left"></mdb-icon>
+                  View project
+                </a>
+              </div>
+            </div>
+          </mdb-card>
+          <br>
+          <div class="row">
+            <div class="col-4">
+              <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Cras justo odio
+                  <mdb-badge pill="true" primary="true">14</mdb-badge>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Dapibus ac facilisis in
+                  <mdb-badge pill="true" primary="true">14</mdb-badge>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Morbi leo risus
+                  <mdb-badge pill="true" primary="true">14</mdb-badge>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <br>
+          <!-- Horizontal Steppers -->
+          <div class="row">
+            <div class="col-md-12">
+
+              <!-- Stepers Wrapper -->
+              <ul class="stepper stepper-horizontal">
+
+                <!-- First Step -->
+                <li class="completed">
+                  <a href="#!">
+                    <span class="circle">1</span>
+                    <span class="label">First step</span>
+                  </a>
+                </li>
+
+                <!-- Second Step -->
+                <li class="active">
+                  <a href="#!">
+                    <span class="circle">2</span>
+                    <span class="label">Second step</span>
+                  </a>
+                </li>
+
+                <!-- Third Step -->
+                <li class="warning">
+                  <a href="#!">
+                    <span class="circle"><mdb-icon fas icon="exclamation"></mdb-icon></span>
+                    <span class="label">Third step</span>
+                  </a>
+                </li>
+
+              </ul>
+              <!-- /.Stepers Wrapper -->
+
+            </div>
+          </div>
+          <!-- /.Horizontal Steppers -->
+
+          <!-- Section: Personal card -->
+          <section class="my-5">
+
+            <!-- Grid row -->
+            <div class="row">
+
+              <!-- Grid column -->
+              <div class="col-md-6 col-lg-4">
+
+                <!-- Card -->
+                <mdb-card class="card-personal">
+
+                  <!-- Card image-->
+                  <mdb-card-img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg"></mdb-card-img>
+                  <!-- Card image-->
+
+                  <!-- Card content -->
+                  <mdb-card-body class="card-body">
+                    <!-- Title-->
+                    <mdb-card-title>
+                      <a>
+                        <h4 class="card-title title-one">Clara</h4>
+                      </a>
+                    </mdb-card-title>
+                    <p class="card-meta">Joined in 2013</p>
+                    <!-- Text -->
+                    <mdb-card-text>
+                      Clara is an photographer living in Madrid.
+                    </mdb-card-text>
+                    <!-- <p class="card-text"></p> -->
+                    <hr>
+                    <a class="card-meta"><span><mdb-icon fas icon="user"></mdb-icon>22 Friends</span></a>
+                  </mdb-card-body>
+                  <!-- Card content -->
+
+                </mdb-card>
+                <!-- Card -->
+
+              </div>
+              <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+          </section>
+          <!-- Section: Personal card -->
+
+          <!-- Section: Group of personal cards -->
+          <section class="my-5">
+
+            <!-- Grid row -->
+            <div class="row">
+
+              <!-- Grid column -->
+              <div class="col-md-12">
+
+                <!-- Card group-->
+                <div class="card-group">
+
+                  <!-- Card -->
+                  <mdb-card class="card-personal mb-md-0 mb-4">
+
+                    <!-- Card image-->
+                    <div class="view overlay">
+                      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" alt="Card image cap">
+                      <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                    <!-- Card image-->
+
+                    <!-- Card content -->
+                    <mdb-card-body>
+
+                      <!-- Title-->
+                      <mdb-card-title>
+                        <a>
+                          <h4 class="card-title">Anna</h4>
+                        </a>
+                      </mdb-card-title>
+
+                      <a class="card-meta">Friends</a>
+                      <!-- Text -->
+                      <mdb-card-text>Anna is a web designer living in New York.</mdb-card-text>
+                      <hr>
+                      <a class="card-meta"><span><mdb-icon fas icon="user"></mdb-icon>83 Friends</span></a>
+                      <p class="card-meta float-right">Joined in 2012</p>
+
+                    </mdb-card-body>
+                    <!-- Card content -->
+
+                  </mdb-card>
+                  <!-- Card -->
+
+                  <!-- Card -->
+                  <mdb-card class="card-personal mb-md-0 mb-4">
+
+                    <!-- Card image-->
+                    <div class="view overlay">
+                      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" alt="Card image cap">
+                      <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                    <!-- Card image-->
+
+                    <!-- Card content -->
+                    <mdb-card-body>
+
+                      <!-- Title-->
+                      <mdb-card-title>
+                        <a>
+                          <h4 class="card-title">John</h4>
+                        </a>
+                      </mdb-card-title>
+
+                      <a class="card-meta">Coworker</a>
+                      <!-- Text -->
+                      <mdb-card-text>John is a copywriter living in Seattle.</mdb-card-text>
+                      <hr>
+                      <a class="card-meta"><span><mdb-icon fas icon="user"></mdb-icon> 48 Friends</span></a>
+                      <p class="card-meta float-right">Joined in 2015</p>
+
+                    </mdb-card-body>
+                    <!-- Card content -->
+
+                  </mdb-card>
+                  <!-- Card -->
+
+                  <!-- Card -->
+                  <mdb-card class="card-personal mb-md-0 mb-4">
+
+                    <!-- Card image-->
+                    <div class="view overlay">
+                      <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(28).jpg" alt="Card image cap">
+                      <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+                    <!-- Card image-->
+
+                    <!-- Card content -->
+                    <mdb-card-body>
+
+                      <!-- Title-->
+                      <mdb-card-title>
+                        <a>
+                          <h4 class="card-title">Sara</h4>
+                        </a>
+                      </mdb-card-title>
+
+                      <a class="card-meta">Coworker</a>
+                      <!-- Text -->
+                      <mdb-card-text class="card-text">Sara is a video maker living in Tokyo.</mdb-card-text>
+                      <hr>
+                      <a class="card-meta"><span><mdb-icon fas icon="user"></mdb-icon>127 Friends</span></a>
+                      <p class="card-meta float-right">Joined in 2014</p>
+
+                    </mdb-card-body>
+                    <!-- Card content -->
+
+                  </mdb-card>
+                  <!-- Card -->
+
+                </div>
+                <!-- Card group-->
+
+              </div>
+              <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+          </section>
+          <!-- Section: Group of personal cards -->
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">...</h5>
+          ssss
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">...</h5>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
