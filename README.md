@@ -5,9 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Source
 https://github.com/mdbootstrap/Angular-Bootstrap-with-Material-Design#demo
 
-## Development server
-How to install MDB via npm
-                      
+## How to install MDB via npm  
+
                       ng new NgQuickStart --style=css
 
                       npm i angular-bootstrap-md --save
