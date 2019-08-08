@@ -7,11 +7,12 @@ https://github.com/mdbootstrap/Angular-Bootstrap-with-Material-Design#demo
 
 ## Development server
 How to install MDB via npm
-ng new NgQuickStart --style=css
+                      
+                      ng new NgQuickStart --style=css
 
-npm i angular-bootstrap-md --save
-npm install --save-dev @fortawesome/fontawesome-free
-npm install -–save chart.js@2.5.0 hammerjs
+                      npm i angular-bootstrap-md --save
+                      npm install --save-dev @fortawesome/fontawesome-free
+                      npm install -–save chart.js@2.5.0 hammerjs
 
 ## angular.json
 
