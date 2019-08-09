@@ -1,1 +1,2 @@
-// export * from './WebStorage';
+export * from './Helper';
+export * from './WebStorage';
