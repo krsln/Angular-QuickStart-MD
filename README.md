@@ -43,9 +43,9 @@ This project was generated with [Angular CLI GitHub](https://github.com/angular/
      ],
      "scripts": [
       "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
-      "node_modules/jquery/dist/jquery.min.js", 
-      "node_modules/bootstrap/dist/js/bootstrap.min.js",
-      "node_modules/popper.js/dist/umd/popper.min.js"
+      "node_modules/jquery/dist/jquery.min.js",
+      "node_modules/popper.js/dist/umd/popper.min.js",
+      "node_modules/bootstrap/dist/js/bootstrap.min.js"
      ]
      
      #for MDB     
@@ -65,14 +65,16 @@ This project was generated with [Angular CLI GitHub](https://github.com/angular/
 
 "scripts": {
 
-    "toServe": "ng serve --port 4200 --open",
-    "toBuild": "ng build --prod --base-href /NgQuickStart/",
+    "start": "ng serve --port 4200 --open",
+    "build": "ng build --prod --base-href /NgQuickStart/",
  
 ## Run&Build
 
-Run `npm run toServe` to run the project.
+Yarn `yarn start` & `yarn build`
 
-Run `npm run toBuild` to build the project.
+NPM Run `npm start` to run the project.
+
+Run `npm build` to build the project.
 The build artifacts will be stored in the `dist/` directory.  
 
 ## Notes
