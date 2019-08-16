@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {FileSizePipe, FilterPipe, SanitizeHtmlPipe, TruncatePipe} from './Pipes';
+import {AlertComponent} from './Components';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import {FileSizePipe, FilterPipe, SanitizeHtmlPipe, TruncatePipe} from './Pipes'
     /* Directives */
 
     /* Components */
+    AlertComponent,
+
   ],
   imports: [
     CommonModule
@@ -38,6 +41,7 @@ import {FileSizePipe, FilterPipe, SanitizeHtmlPipe, TruncatePipe} from './Pipes'
     /* Directives */
 
     /* Components */
+    AlertComponent,
 
   ]
 })

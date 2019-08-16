@@ -1,14 +1,15 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './C/home/home.component';
-import {LayoutBasicComponent} from './Layouts/layout-basic/layout-basic.component';
+import {LayoutZeroComponent} from './Core/Layouts';
+
+import {HomeComponent} from './Modules/Home/Components/home/home.component';
 
 
 const routes: Routes = [
   // App routes goes here here
   {
     path: '',
-    component: LayoutBasicComponent,
+    component: LayoutZeroComponent,
     children: [
       {path: '', component: HomeComponent},
       // {
@@ -34,9 +35,10 @@ const routes: Routes = [
       scrollPositionRestoration: 'enabled', // 'disabled' | 'enabled' | 'top'
       enableTracing: false
     }),
-    // RouterModule.forRoot(appRoutes, {useHash: true}) // http://localhost:6200/#/Tour
+    // RouterModule.forRoot(appRoutes, {useHash: true}) // http://localhost:6200/#/Home
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 }

@@ -1,29 +1,30 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {LayoutZeroComponent, HeaderComponent, FooterComponent} from './Core/Layouts';
 
-import {AppComponent} from './app.component';
-import {HeaderComponent} from './Layouts/header/header.component';
-import {HomeComponent} from './C/home/home.component';
-import {LayoutBasicComponent} from './Layouts/layout-basic/layout-basic.component';
-
+import {HomeModule} from './Modules/Home/Home.Module';
+import {SharedModule} from './Shared/Shared.Module';
 import {AppRoutingModule} from './App.Routing.Module';
-import {SharedModule} from './Shared.Module';
+
+import {CanDeactivateGuard} from './Core/Guards/Can.Component.Deactivate';
+import {AlertService, AuthGuard, AuthenticationService} from './Core/Services';
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    // Layouts
+    LayoutZeroComponent,
     HeaderComponent,
-    HomeComponent,
-    LayoutBasicComponent
+    FooterComponent,
   ],
   imports: [
-    BrowserModule,
-    MDBBootstrapModule.forRoot()
+    BrowserModule
     , HttpClientModule// import HttpClientModule after BrowserModule.
     , CommonModule
 
@@ -32,9 +33,16 @@ import {SharedModule} from './Shared.Module';
 
     , AppRoutingModule
     , SharedModule
+    , HomeModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [
+    CanDeactivateGuard
+    , AuthGuard
+    , AuthenticationService
+
+    , AlertService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
