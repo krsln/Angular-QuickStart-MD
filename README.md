@@ -25,6 +25,7 @@ This project was generated with [Angular CLI GitHub](https://github.com/angular/
     # for basic
     npm i --save @fortawesome/fontawesome-free 
     npm i --save bootstrap jquery popper.js
+    npm i --save jquery-ui-dist
     
     # for MDB https://github.com/mdbootstrap/Angular-Bootstrap-with-Material-Design#demo
     npm i angular-bootstrap-md --save
@@ -36,17 +37,19 @@ This project was generated with [Angular CLI GitHub](https://github.com/angular/
 { "projects": { "NgProjectName": { "architect": { "build": { "options": {   
      
      #for basic
-     "styles": [
+    "styles": [
       "node_modules/@fortawesome/fontawesome-free/css/all.css",
-      "node_modules/bootstrap/dist/css/bootstrap.css", 
+      "node_modules/jquery-ui-dist/jquery-ui.css",
+      "node_modules/bootstrap/dist/css/bootstrap.css",
       "src/styles.css"
-     ],
-     "scripts": [
+    ],
+    "scripts": [
       "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
       "node_modules/jquery/dist/jquery.min.js",
+      "node_modules/jquery-ui-dist/jquery-ui.min.js",
       "node_modules/popper.js/dist/umd/popper.min.js",
       "node_modules/bootstrap/dist/js/bootstrap.min.js"
-     ]
+    ]
      
      #for MDB     
      "styles": [
