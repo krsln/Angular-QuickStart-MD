@@ -1,23 +1,16 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgModule} from '@angular/core';
 
-import {LayoutZeroComponent, HeaderComponent, FooterComponent} from './Core/Layouts';
-
-import {HomeModule} from './Modules/Home/Home.Module';
-import {SharedModule} from './Shared/Shared.Module';
 import {AppRoutingModule} from './App.Routing.Module';
-
-import {CanDeactivateGuard} from './Core/Guards/Can.Component.Deactivate';
-import {AlertService, AuthGuard, AuthenticationService} from './Core/Services';
+import {AppComponent} from './app.component';
+import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Core/Layouts';
+import {HttpClientModule} from '@angular/common/http';
+import {CoreModule} from './Core/Core.Module';
+import {HomeModule} from './Modules/Home/Home.Module';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     // Layouts
     LayoutZeroComponent,
     HeaderComponent,
@@ -26,23 +19,16 @@ import {AlertService, AuthGuard, AuthenticationService} from './Core/Services';
   imports: [
     BrowserModule
     , HttpClientModule// import HttpClientModule after BrowserModule.
-    , CommonModule
+    // , CommonModule
+    // , FormsModule // Template driven approach
+    // , ReactiveFormsModule
 
-    , FormsModule // Template driven approach
-    , ReactiveFormsModule
+    , CoreModule
+    , HomeModule
 
     , AppRoutingModule
-    , SharedModule
-    , HomeModule
   ],
-  schemas: [NO_ERRORS_SCHEMA],
-  providers: [
-    CanDeactivateGuard
-    , AuthGuard
-    , AuthenticationService
-
-    , AlertService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
