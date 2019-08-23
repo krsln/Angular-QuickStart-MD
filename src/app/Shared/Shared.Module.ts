@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {FileSizePipe, FilterPipe, SanitizeHtmlPipe, TruncatePipe} from './Pipes';
-import {AlertComponent} from './Components';
+import {AlertComponent, ModalComponent, PageNotFoundComponent, SpinnerComponent, SpinnerOverlayComponent} from './Components';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,10 @@ import {AlertComponent} from './Components';
 
     /* Components */
     AlertComponent,
-
+    ModalComponent,
+    PageNotFoundComponent,
+    SpinnerComponent,
+    SpinnerOverlayComponent
   ],
   imports: [
     CommonModule
@@ -42,7 +45,10 @@ import {AlertComponent} from './Components';
 
     /* Components */
     AlertComponent,
-
+    ModalComponent,
+    PageNotFoundComponent,
+    SpinnerComponent,
+    SpinnerOverlayComponent
   ]
 })
 export class SharedModule {

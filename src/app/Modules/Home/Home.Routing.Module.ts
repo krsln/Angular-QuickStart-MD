@@ -2,28 +2,23 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {LayoutZeroComponent} from '../../Core/Layouts';
-import {HomeComponent} from './Components/home/home.component';
-import {ContactComponent} from './Components/contact/contact.component';
-
-import {AuthGuard} from '../../Core/Services/Auth.Guard.Service';
-import {CanDeactivateGuard} from '../../Core/Guards/Can.Component.Deactivate';
+import {PathResolveService} from '../../Core/Services';
+import {PageNotFoundComponent} from '../../Shared/Components';
+import {ContactComponent, HomeComponent} from './Components';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'Home',
     component: LayoutZeroComponent,
     children: [
-      {path: 'Home', component: HomeComponent, children: []},
-      {
-        path: 'Contact',
-        component: ContactComponent,
-        canActivate: [AuthGuard], canActivateChild: [AuthGuard],
-        canDeactivate: [CanDeactivateGuard]
-      },
+      {path: '', component: HomeComponent, children: []},
+      // {path: 'Login', component: LoginComponent},
+      {path: 'Contact', component: ContactComponent},
+      {path: 'Customer', component: ContactComponent},
+      {path: '**', resolve: {path: PathResolveService}, component: PageNotFoundComponent},
     ]
   },
 ];
-
 
 @NgModule({
   imports: [
@@ -34,5 +29,4 @@ const routes: Routes = [
   declarations: []
 })
 export class HomeRoutingModule {
-
 }

@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 import {AuthenticationService} from './Authentication.Service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuardService implements CanActivate, CanActivateChild {
   IsNavigated: Promise<boolean>;
 
   constructor(private  authService: AuthenticationService, private  router: Router) {

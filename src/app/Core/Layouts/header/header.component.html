@@ -1,37 +1,62 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" [routerLink]="['/']">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<!--Navbar -->
+<nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['/Home']">Yay!</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+          aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a [routerLink]="['/Contact']" class="nav-link">Contact</a>
+        <a [routerLink]="['/Flight']" class="nav-link">Flight</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-          Dropdown
+      <li class="nav-item dropdown" [routerLinkActive]="'active'">
+        <a appDropdown class="nav-link dropdown-toggle" role="button" id="navbarDropdown"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Tour
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a [routerLink]="['/Tour']" class="dropdown-item">Tour</a>
+          <a [routerLink]="['/Tour/Details',1]" class="dropdown-item">Tour/Details/1</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+    <ul class="nav navbar-nav nav-flex-icons ml-auto">
+
+      <li class="nav-item" routerLinkActive="active">
+        <a [routerLink]="['/Sale/Cart']" class="nav-link"><i class="fas fa-shopping-basket"></i>&nbsp;<span
+          class="badge badge-info">{{Count}}</span></a>
+      </li>
+
+      <li class="nav-item" routerLinkActive="active">
+        <a [routerLink]="['/Home/Contact']" class="nav-link">
+          <i alt="Contact us" class="fas fa-envelope"></i><span class="sr-only">Contact us</span>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{IsAuthenticated&&Customer?Customer.FirstName+' '+Customer.LastName:'Account'}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" *ngIf="!IsAuthenticated" [routerLink]="['/Home/Login']">Login</a>
+          <ng-container *ngIf="IsAuthenticated">
+            <a class="dropdown-item" [routerLink]="['/Home/Customer']">Profile</a>
+            <a class="dropdown-item" (click)="onLogout()">Log out</a>
+          </ng-container>
+        </div>
+      </li>
+      <!-- Login / register -->
+      <!--      <a id="navbar-static-login" class="btn btn-info btn-rounded btn-sm waves-effect waves-light" data-toggle="modal" data-target="#navbarLogin">Log In-->
+      <!--        <i class="fas fa-sign-in-alt ml-2"></i>-->
+      <!--      </a>-->
+    </ul>
+
   </div>
 </nav>
+<!--/.Navbar -->
+
 <br>
 <br>
 <br>

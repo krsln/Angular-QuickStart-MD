@@ -1,0 +1,24 @@
+<div tabindex="-1" role="dialog" (click)="onContainerClicked($event)"
+     class="modal fade" [ngClass]="{'show': visibleAnimate}"
+     [ngStyle]="{'display': visible ? 'block' : 'none','padding-right': '17px', 'opacity': visibleAnimate ? 1 : 0}"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <ng-content *ngIf="!Dynamic.Active" select=".modal-title"></ng-content>
+        <h5 *ngIf="Dynamic.Active" class="modal-title" [innerHtml]="Dynamic.TitleContent"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="Hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <ng-content *ngIf="!Dynamic.Active" select=".modal-body"></ng-content>
+      <div *ngIf="Dynamic.Active" class="modal-body" [innerHtml]="Dynamic.BodyContent"></div>
+      <ng-content *ngIf="!Dynamic.Active" select=".modal-footer"></ng-content>
+      <div *ngIf="Dynamic.Active" class="modal-footer">
+        <!--[innerHtml]="Dynamic.FooterContent"-->
+        {{Dynamic.FooterContent}}
+        <button type="button" class="btn btn-default" (click)="Hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

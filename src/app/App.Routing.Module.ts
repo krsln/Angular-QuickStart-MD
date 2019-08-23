@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LayoutZeroComponent} from './Core/Layouts';
 
-import {HomeComponent} from './Modules/Home/Components/home/home.component';
-
+import {PathResolveService} from './Core/Services';
+import {PageNotFoundComponent} from './Shared/Components';
 
 const routes: Routes = [
   // App routes goes here here
@@ -11,21 +11,10 @@ const routes: Routes = [
     path: '',
     component: LayoutZeroComponent,
     children: [
-      {path: '', component: HomeComponent},
-      // {
-      //   path: 'Test', component: TestComponent, children: [
-      //     {path: 'Cart', component: TestSubComponent},
-      //   ]
-      // },
+      {path: '', redirectTo: '/Home', pathMatch: 'full'},
+      {path: '**', resolve: {path: PathResolveService}, component: PageNotFoundComponent},
     ]
   },
-
-  // no layout routes
-  // {path: 'Login', component: LoginComponent},
-
-  // otherwise redirect to home
-  // { path: '**', redirectTo: '' }
-  // , {path: '**', redirectTo: '/not-found'}
 ];
 
 @NgModule({
