@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {AlertService, SpinnerOverlayService} from '../../../../Core/Services';
+import {AlertService, AuthenticationService, SpinnerOverlayService} from '../../../../Core/Services';
 import {ModalComponent} from 'src/app/Shared/Components';
 import {StorageType, WebStorage} from '../../../../Core/Utilities';
 
@@ -10,8 +10,8 @@ import {StorageType, WebStorage} from '../../../../Core/Utilities';
 })
 export class HomeComponent implements OnInit {
   @ViewChild('modal1', {static: true}) modal1: ModalComponent;
-  // private authService: any;
-  constructor(private alertService: AlertService, private  overlayService: SpinnerOverlayService) {
+
+  constructor(private alertService: AlertService, private authService: AuthenticationService, private  overlayService: SpinnerOverlayService) {
   }
 
   ngOnInit() {
@@ -54,10 +54,10 @@ export class HomeComponent implements OnInit {
 
   onLogin() {
     console.log('Customer login ...');
-    // this.authService.Login('Krsln', 'p');
-    // this.authService.Changed.subscribe(result => {
-    //   console.log('..: ', result);
-    // });
+    this.authService.Login('Krsln', 'p');
+    this.authService.Changed.subscribe(result => {
+      console.log('..: ', result);
+    });
     this.overlayService.show('Test');
     setTimeout(() => {
       this.overlayService.hide();
@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
     WebStorage.Remove(StorageType.Local, 'BasketCode');
 
     console.log('Customer logout ...');
-    // this.authService.Logout();
+    this.authService.Logout();
     this.modal1.Dynamic = {Active: true, TitleContent: 'Customer logout', BodyContent: 'whyyy!', FooterContent: ''};
     this.modal1.Show();
   }
