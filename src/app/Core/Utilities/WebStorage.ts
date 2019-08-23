@@ -40,6 +40,7 @@ export class WebStorage {
         data = sessionStorage.getItem(key);
         break;
     }
+    // console.log('Get', data);
 
     if (data !== 'undefined' && data !== undefined && data !== null) {
       return this.CheckData(storageType, key, data);

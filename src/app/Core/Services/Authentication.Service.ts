@@ -41,8 +41,8 @@ export class AuthenticationService {
   IsAuthenticated() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log('IsAuthenticated', this.Customer, WebStorage.Get(StorageType.Local, 'Auth') !== null);
         this.Customer = WebStorage.Get(StorageType.Local, 'Auth');
+        // console.log('IsAuthenticated', this.Customer);
         resolve(this.Customer !== null);
       }, 1000);
     });

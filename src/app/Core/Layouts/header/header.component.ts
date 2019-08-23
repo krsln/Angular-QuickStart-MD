@@ -26,17 +26,21 @@ export class HeaderComponent implements OnInit {
     // });
 
     this.authService.IsAuthenticated().then((authenticated: boolean) => {
-      console.log('authService.IsAuthenticated', authenticated);
+      this.IsAuthenticated = authenticated;
     });
-
     this.authService.Authenticated.subscribe((authenticated: boolean) => {
       console.log('authService.Authenticated', authenticated);
       this.IsAuthenticated = authenticated;
     });
     this.authService.Changed.subscribe(customer => {
-      // console.log('authService.Changed', customer);
+      console.log('authService.Changed', customer);
       this.Customer = customer;
     });
+
+    if (this.IsAuthenticated) {
+      this.Customer = WebStorage.Get(StorageType.Local, 'Auth');
+      console.log('this.IsAuthenticated', this.Customer);
+    }
   }
 
   onLogout() {
