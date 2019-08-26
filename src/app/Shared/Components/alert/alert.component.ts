@@ -1,51 +1,84 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AlertService} from '../../../Core/Services';
-import {Alert, AlertType} from '../../Models/Local';
+import {Notification, NotificationType, NotificationWay} from '../../Models';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit {
-  Alerts: Alert[] = [];
+export class AlertComponent implements OnInit, OnDestroy {
+  Notifications: Notification [] = [];
+  Interval;
 
   constructor(private alertService: AlertService) {
   }
 
   ngOnInit() {
-    this.alertService.GetAlert().subscribe((alert: Alert) => {
-      if (!alert) {
+    this.alertService.GetAlert().subscribe((notification: Notification) => {
+      if (!notification) {
         // clear alerts when an empty alert is received
-        this.Alerts = [];
+        this.Notifications = [];
         return;
       }
       // add alert to array
-      this.Alerts.push(alert);
+      this.Notifications.push(notification);
+      setTimeout(() => {
+        this.RemoveAlert(notification);
+      }, 6000);
     });
   }
 
-  RemoveAlert = (alert: Alert) => this.Alerts = this.Alerts.filter(x => x !== alert);
+  RemoveAlert = (alert: Notification) => this.Notifications = this.Notifications.filter(x => x !== alert);
 
-  CssClass(alert: Alert) {
-    if (!alert) {
+  CssClass(notification: Notification) {
+    if (!notification) {
       return;
     }
     // return css class based on alert type
-    switch (alert.Type) {
-      case AlertType.Success:
-        return 'alert alert-success';
-      case AlertType.Error:
-        return 'alert alert-danger';
-      case AlertType.Info:
-        return 'alert alert-info';
-      case AlertType.Warning:
-        return 'alert alert-warning';
+    if (notification.Option.Way === NotificationWay.Alert) {
+      switch (notification.Option.Type) {
+        case NotificationType.None:
+          return 'alert alert-light';
+        case NotificationType.Success:
+          return 'alert alert-success';
+        case NotificationType.Error:
+          return 'alert alert-danger';
+        case NotificationType.Info:
+          return 'alert alert-info';
+        case NotificationType.Warning:
+          return 'alert alert-warning';
+      }
+    } else {
+      switch (notification.Option.Type) {
+        case NotificationType.Success:
+          return 'bg-success';
+        case NotificationType.Error:
+          return 'bg-danger';
+        case NotificationType.Info:
+          return 'bg-info';
+        case NotificationType.Warning:
+          return 'bg-warning';
+      }
     }
   }
+
+  // ToastPosition(notification: Notification) {
+  //   const right = ['float: right;' ];
+  //   const rightd =  'float: right; min-width: 350px;' ;
+  //   if (notification.Option) {
+  //     if (notification.Option.Position === 'Right') {
+  //       return right;
+  //     }
+  //   }
+  // }
 
   // GetAlertType(alert: Alert) {
   //   return AlertType[alert.Type].toString();
   // }
+
+  ngOnDestroy(): void {
+    clearInterval(this.Interval);
+  }
 }
 

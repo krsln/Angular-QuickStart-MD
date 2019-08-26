@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AlertService, AuthenticationService, SpinnerOverlayService} from '../../../../Core/Services';
 import {ModalComponent} from 'src/app/Shared/Components';
 import {StorageType, WebStorage} from '../../../../Core/Utilities';
+import {NotificationType, NotificationWay} from '../../../../Shared/Models';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +16,29 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.alertService.Success('Home ngOnInit Success alert test', 'Success Yay!');
-    this.alertService.Info('Home ngOnInit Info', 'Congratulations!');
+    this.NotificationTest();
+  }
+
+  NotificationTest() {
+    setTimeout(() => {
+      this.alertService.Success('Home ngOnInit Success alert test', 'Success Yay!');
+    }, 1000);
+    // this.alertService.Info('Home ngOnInit Info', 'Congratulations!');
     // this.alertService.Error('Home ngOnInit Error');
+
+    setTimeout(() => {
+      this.alertService.Alert('Message', 'Title', {Way: NotificationWay.Alert, Type: NotificationType.None});
+    }, 2000);
+    setTimeout(() => {
+      this.alertService.Alert('Message', 'Title', {Way: NotificationWay.Toast, Type: NotificationType.None});
+    }, 3000);
+    setTimeout(() => {
+      this.alertService.Toast('Home ngOnInit Toast', 'Toast! 1', 'Right');
+    }, 4000);
+
+    // this.alertService.WarningToast('Home ngOnInit WarningToast', 'WarningToast! 2');
+    // this.alertService.ErrorToast('Home ngOnInit ErrorToast', 'ErrorToast! 3');
+    // this.alertService.InfoToast('Home ngOnInit InfoToast', 'InfoToast! 4');
   }
 
   Store(where: string, remove: boolean = false) {
