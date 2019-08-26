@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'Filter',
-  // pure: false
+  // pure: false //(default is true) if false=> re-render if input of pipe changes
 })
 export class FilterPipe implements PipeTransform {
   transform(items: any[], searchText: string, propName: string): any[] {
