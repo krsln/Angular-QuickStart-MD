@@ -69,6 +69,10 @@ npm install -–save chart.js@2.5.0 hammerjs
 "build": "ng build --prod --base-href /NgQuickStart/",
 ```  
 
+## Images
+![Auth](./Auth.png)
+![Home](./Home.png)
+
 ## Run&Build
 
 Yarn `yarn start` & `yarn build`
