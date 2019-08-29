@@ -40,7 +40,7 @@
           {{IsAuthenticated&&Customer?Customer.FirstName+' '+Customer.LastName:'Account'}}
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" *ngIf="!IsAuthenticated" [routerLink]="['/Home/Login']">Login</a>
+          <a class="dropdown-item" *ngIf="!IsAuthenticated" [routerLink]="['/Auth']">Login</a>
           <ng-container *ngIf="IsAuthenticated">
             <a class="dropdown-item" [routerLink]="['/Home/Customer']">Profile</a>
             <a class="dropdown-item" (click)="onLogout()">Log out</a>

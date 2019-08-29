@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {AlertService, AuthenticationService, SpinnerOverlayService} from '../../../../Core/Services';
+import {AlertService, SpinnerOverlayService} from '../../../../Core/Services';
 import {ModalComponent} from 'src/app/Shared/Components';
 import {StorageType, WebStorage} from '../../../../Core/Utilities';
 import {NotificationType, NotificationWay} from '../../../../Shared/Models';
+import {AuthService} from '../../../../Auth';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import {NotificationType, NotificationWay} from '../../../../Shared/Models';
 export class HomeComponent implements OnInit {
   @ViewChild('modal1', {static: true}) modal1: ModalComponent;
 
-  constructor(private alertService: AlertService, private authService: AuthenticationService, private  overlayService: SpinnerOverlayService) {
+  constructor(private alertService: AlertService, private authService: AuthService, private  overlayService: SpinnerOverlayService) {
   }
 
   ngOnInit() {
@@ -20,21 +21,19 @@ export class HomeComponent implements OnInit {
   }
 
   NotificationTest() {
-    setTimeout(() => {
-      this.alertService.Success('Home ngOnInit Success alert test', 'Success Yay!');
-    }, 1000);
+    this.alertService.Success('Home ngOnInit Success alert test', 'Success Yay!');
     // this.alertService.Info('Home ngOnInit Info', 'Congratulations!');
     // this.alertService.Error('Home ngOnInit Error');
 
     setTimeout(() => {
       this.alertService.Alert('Message', 'Title', {Way: NotificationWay.Alert, Type: NotificationType.None});
-    }, 2000);
+    }, 300);
     setTimeout(() => {
       this.alertService.Alert('Message', 'Title', {Way: NotificationWay.Toast, Type: NotificationType.None});
-    }, 3000);
+    }, 500);
     setTimeout(() => {
       this.alertService.Toast('Home ngOnInit Toast', 'Toast! 1', 'Right');
-    }, 4000);
+    }, 800);
 
     // this.alertService.WarningToast('Home ngOnInit WarningToast', 'WarningToast! 2');
     // this.alertService.ErrorToast('Home ngOnInit ErrorToast', 'ErrorToast! 3');
@@ -76,7 +75,7 @@ export class HomeComponent implements OnInit {
   onLogin() {
     console.log('Customer login ...');
     this.authService.Login('Krsln', 'p');
-    this.authService.Changed.subscribe(result => {
+    this.authService.User.subscribe(result => {
       console.log('..: ', result);
     });
     this.overlayService.show('Test');

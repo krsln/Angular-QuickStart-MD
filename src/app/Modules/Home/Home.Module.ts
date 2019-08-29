@@ -4,18 +4,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {HomeRoutingModule} from './Home.Routing.Module';
 import {SharedModule} from '../../Shared/Shared.Module';
-import {ContactComponent, HomeComponent, LoginComponent} from './Components';
+import {ContactComponent, HomeComponent} from './Components';
 
 @NgModule({
   declarations: [
     HomeComponent,
     ContactComponent,
-    LoginComponent,
   ],
   exports: [
     HomeComponent,
     ContactComponent,
-    LoginComponent,
   ],
   imports: [
     CommonModule

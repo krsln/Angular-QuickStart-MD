@@ -5,7 +5,14 @@ import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {FileSizePipe, FilterPipe, SanitizeHtmlPipe, TruncatePipe} from './Pipes';
-import {AlertComponent, ModalComponent, PageNotFoundComponent, SpinnerComponent, SpinnerOverlayComponent} from './Components';
+import {
+  AlertComponent,
+  ModalComponent,
+  PageErrorComponent,
+  PageNotFoundComponent,
+  SpinnerComponent,
+  SpinnerOverlayComponent
+} from './Components';
 
 @NgModule({
   declarations: [
@@ -21,6 +28,7 @@ import {AlertComponent, ModalComponent, PageNotFoundComponent, SpinnerComponent,
     AlertComponent,
     ModalComponent,
     PageNotFoundComponent,
+    PageErrorComponent,
     SpinnerComponent,
     SpinnerOverlayComponent
   ],
@@ -47,6 +55,7 @@ import {AlertComponent, ModalComponent, PageNotFoundComponent, SpinnerComponent,
     AlertComponent,
     ModalComponent,
     PageNotFoundComponent,
+    PageErrorComponent,
     SpinnerComponent,
     SpinnerOverlayComponent
   ]

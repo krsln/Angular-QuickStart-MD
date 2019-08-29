@@ -23,3 +23,13 @@ export class NotificationOption {
   KeepAfterRouteChange: boolean;
   Position: string;
 }
+
+export class Error {
+  Code: string;
+  Message: string;
+}
+
+export class HttpError extends Error {
+  Type?: string;
+  Path?: string;
+}

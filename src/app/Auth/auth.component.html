@@ -1,0 +1,43 @@
+<app-page-error [Error]="Error"></app-page-error>
+
+<ng-container *ngIf="IsLoading">
+  <app-spinner-overlay></app-spinner-overlay>
+</ng-container>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div *ngIf="!IsLoading&&!(Error&&Error.Type!=='Response')" class="col-12 col-md-6">
+
+      <div class="card">
+        <div class="card-body">
+
+          <form (ngSubmit)="form.form.valid && Submit(form)" #form="ngForm" novalidate>
+
+            <div class="form-group">
+              <label for="Email">E-mail</label>
+              <input type="email" id="Email" name="Email" class="form-control"
+                     [(ngModel)]="Model.Email" #Email="ngModel" required email>
+              <div class="alert alert-danger" [hidden]="Email.pristine || Email.valid">Email is required</div>
+            </div>
+
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="password" id="Password" name="Password" class="form-control"
+                     [(ngModel)]="Model.Password" #Password="ngModel" required>
+              <div class="alert alert-danger" [hidden]="Password.pristine || Password.valid">Password is required</div>
+            </div>
+
+            <div>
+              <button class="btn btn-outline-primary">Login</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

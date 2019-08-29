@@ -1,4 +1,4 @@
-<ng-container *ngFor="let n of Notifications">
+<div class="container-fluid" *ngFor="let n of Notifications">
 
   <div *ngIf="n.Option.Way=== 0" [ngClass]="CssClass(n)+' alert-dismissible'">
     <a href="#" class="close" (click)="RemoveAlert(n)" data-dismiss="alert" aria-label="close">&times;</a>
@@ -21,7 +21,7 @@
       <div class="toast-body">{{n.Message}}</div>
     </div>
   </div>
-</ng-container>
+</div>
 <!--[style]="ToastPosition(notification)"-->
 <!--[attr.style]="ToastPosition(notification)"-->
 <!--[ngStyle]="ToastPosition(notification)"-->

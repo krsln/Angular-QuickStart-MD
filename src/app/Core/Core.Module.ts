@@ -2,13 +2,9 @@ import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {CanDeactivateGuard} from './Guards';
 import {
   AlertService,
-  AuthGuardService,
-  HttpInterceptorService,
   PagerService,
   PathResolveService,
   SpinnerOverlayService,
-
-  AuthenticationService,
 } from './Services';
 import {AjaxHelper} from './Utilities';
 import {OverlayModule} from '@angular/cdk/overlay';
@@ -17,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../Shared/Shared.Module';
 import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Layouts';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor, TestInterceptor} from './Interceptors';
 
 @NgModule({
   declarations: [],
@@ -43,13 +40,12 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
     // Services
     , AlertService
-    , AuthGuardService
-    , AuthenticationService
     , PagerService
     , PathResolveService
     , SpinnerOverlayService
 
-    , {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
+    , {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    , {provide: HTTP_INTERCEPTORS, useClass: TestInterceptor, multi: true}
   ],
 })
 export class CoreModule {
