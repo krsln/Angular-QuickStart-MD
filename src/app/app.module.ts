@@ -7,7 +7,6 @@ import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Core/Layo
 import {HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './Core/Core.Module';
 import {HomeModule} from './Modules/Home/Home.Module';
-import {AuthModule} from './Auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import {AuthModule} from './Auth/auth.module';
 
     , CoreModule
     , HomeModule
-    , AuthModule
 
     , AppRoutingModule
   ],

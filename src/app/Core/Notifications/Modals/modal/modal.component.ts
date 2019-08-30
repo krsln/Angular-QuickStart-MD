@@ -1,5 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
+import {IModalContent, IModalResponse} from '../Models';
+import {ActivatedRoute, Router} from '@angular/router';
 
 declare var $: any;
 
@@ -10,14 +12,15 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit, OnDestroy {
-  Dynamic: DynamicContent;
+  public ModalContent: IModalContent;
   public visible = false;
   public visibleAnimate = false;
-  private ResponseChanges = new Subject<ModalResponse>();
-  private Response: ModalResponse;
 
-  constructor(private el: ElementRef = null) {
-    this.Dynamic = {Active: false, TitleContent: '', BodyContent: '', FooterContent: ''};
+  private ResponseChanges = new Subject<IModalResponse>();
+  private Response: IModalResponse;
+
+  constructor(private el: ElementRef = null, private router: Router, private route: ActivatedRoute) {
+    this.ModalContent = {Active: false, TitleContent: '', BodyContent: '', FooterContent: null};
     // console.log(this.el);
   }
 
@@ -39,7 +42,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     $('body').addClass('modal-open');
 
     this.ResponseChanges = new Subject<any>();
-    this.Response = new ModalResponse();
+    this.Response = new IModalResponse();
 
     this.visible = true;
     setTimeout(() => this.visibleAnimate = true, 100);
@@ -63,6 +66,18 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.Hide();
   }
 
+  onCloseConfirmRedirect(path: string) {
+    this.Response.Text = 'onCloseConfirmRedirect';
+    this.Response.Result = true;
+
+    this.ResponseChanges.next(this.Response);
+    this.ResponseChanges.complete();
+    this.Hide();
+    this.router.navigate([path], {relativeTo: this.route}).then((res) => {
+      console.log(path, res);
+    });
+  }
+
   onCloseCancel() {
     this.Response.Text = 'onCloseCancel';
     this.Response.Result = false;
@@ -71,7 +86,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.ResponseChanges.complete();
   }
 
-  SendData(data: any) {
+  onSendData(data: any) {
     this.Response.Text = 'SendData';
     this.Response.Data = data;
 
@@ -79,22 +94,9 @@ export class ModalComponent implements OnInit, OnDestroy {
     // this.ResponseChanges.complete();
   }
 
-  afterClosed(): Observable<ModalResponse> {
+  onAfterClosed(): Observable<IModalResponse> {
     return this.ResponseChanges;
   }
-}
-
-export class ModalResponse {
-  Result: boolean;
-  Text: string;
-  Data: any;
-}
-
-export class DynamicContent {
-  Active: boolean;
-  TitleContent: string;
-  BodyContent: string;
-  FooterContent: string;
 }
 
 /*   Usage

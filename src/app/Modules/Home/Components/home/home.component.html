@@ -4,8 +4,11 @@
     <div class="col-12 mb-2">
       <div class="card">
         <div class="card-body">
+          <button class="btn btn-outline-primary mr-1" (click)="NotificationTest()">Notification Test</button>
           <button class="btn btn-outline-primary mr-1" (click)="onLogin()">Login</button>
-          <button class="btn btn-outline-primary" (click)="onLogout()">Logout</button>
+          <button class="btn btn-outline-primary mr-1" (click)="onLogout()">Logout</button>
+
+          <button class="btn btn-outline-primary mr-1" (click)="onOverlay()">Overlay</button>
         </div>
       </div>
     </div>
@@ -34,61 +37,8 @@
 
     <div class="col-12 mb-2">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body bg-danger" style="height:500px">
 
-          <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-secondary" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-success" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-danger" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-warning" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-info" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-light" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-border text-dark" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-
-          <div class="text-center">
-            <div class="spinner-grow text-primary" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-secondary" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-success" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-danger" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-warning" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-info" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-light" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-            <div class="spinner-grow text-dark" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -98,10 +48,7 @@
       <div class="card">
         <div class="card-body">
 
-          <button class="btn btn-outline-primary mr-2"
-                  (click)="modal1.Dynamic = { Active: true, TitleContent: 'from html', BodyContent: 'hihihi :p!'};modal1.Show()">
-            modal1
-          </button>
+          <button class="btn btn-outline-primary mr-1" (click)="GoToCart()">modalService GoToCart</button>
 
           <span class="dropdown ">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -139,7 +86,9 @@
           <!-- Subtitle -->
           <h6 class="font-weight-bold indigo-text py-2">Photography</h6>
           <!-- Text -->
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat laborum ut beatae ullam suscipit veniam.
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
+            voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
+            laborum ut beatae ullam suscipit veniam.
           </p>
 
           <!-- Linkedin -->
@@ -165,4 +114,3 @@
 
   </div>
 </div>
-<app-modal #modal1></app-modal>

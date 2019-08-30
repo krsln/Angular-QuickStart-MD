@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {StorageType, WebStorage} from '../Core/Utilities';
+import {StorageType, WebStorage} from '../Utilities';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {Router} from '@angular/router';
-import {HttpError} from '../Shared/Models';
+import {HttpError} from '../../Shared/Models';
 
 @Injectable({
   providedIn: 'root'

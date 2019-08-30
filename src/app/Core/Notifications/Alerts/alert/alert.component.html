@@ -1,0 +1,36 @@
+<div [id]="n.Id" class="container-fluid" *ngFor="let n of Notifications">
+  <!--Alert-->
+  <div *ngIf="n.Notification.Way=== 0" [ngClass]="CssClass(n.Notification)+' alert-dismissible'">
+    <a href="#" class="close" (click)="RemoveAlert(n.Notification)" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{n.Notification.Title}}</strong> {{n.Notification.Message}}
+    <small class="text-muted float-right">
+      <span class="timer"> <span class="minutes"></span><span>:</span><span class="seconds"></span></span>
+    </small>
+  </div>
+  <!--Toast-->
+  <div *ngIf="n.Notification.Way=== 1" aria-live="polite" aria-atomic="true"
+       style="position: relative; min-height: 100px;">
+    <div [ngClass]="CssClass(n.Notification)+' toast fade show'" style="min-width: 350px; float: right;">
+      <div class="toast-header">
+        <!-- <img src="..." class="rounded mr-2" alt="...">-->
+        <strong class="mr-auto">{{n.Notification.Title}}</strong>
+        <small class="text-muted">
+          <span class="timer"> <span class="minutes"></span><span>:</span><span class="seconds"></span></span>
+        </small>
+
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"
+                (click)="RemoveAlert(n.Notification)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        {{n.Notification.Message}}
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--[style]="ToastPosition(notification)"-->
+<!--[attr.style]="ToastPosition(notification)"-->
+<!--[ngStyle]="ToastPosition(notification)"-->
+

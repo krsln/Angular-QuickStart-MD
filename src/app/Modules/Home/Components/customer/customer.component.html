@@ -1,0 +1,45 @@
+<div class="container">
+  <div *ngIf="Customer" class="row">
+    <div class="col-12 p-md-1 mb-2">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{Customer.FirstName}} {{Customer.LastName}}</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Email</b> {{Customer.Email}}</li>
+            <li class="list-group-item"><b>Birthday</b> {{Customer.Birthday|date:'yyy/MM/dd'}}</li>
+            <li class="list-group-item"><b>Gender</b> {{Customer.Gender}}</li>
+            <li class="list-group-item"><b>IdentificationNumber</b> {{Customer.IdentificationNumber}}</li>
+          </ul>
+          <div class="card card-body" *ngFor="let contact of Customer.ContactInformations">
+            <h5 class="card-title">Contact Informations</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>WhoIsName</b> {{contact.WhoIsName}}</li>
+              <li class="list-group-item"><b>Phone</b> {{contact.Phone}}</li>
+              <li class="list-group-item"><b>CellPhone</b> {{contact.CellPhone}}</li>
+              <li class="list-group-item"><b>OtherPhones</b> {{contact.OtherPhones}}</li>
+              <li class="list-group-item"><b>Fax</b> {{contact.Fax}}</li>
+              <li class="list-group-item"><b>Email</b> {{contact.Email}}</li>
+              <li class="list-group-item"><b>SocialMediaLinks</b> {{contact.SocialMediaLinks}}</li>
+              <li class="list-group-item"><b>WebAddress</b> {{contact.WebAddress}}</li>
+            </ul>
+            <div class="card card-body" *ngFor="let add of contact.Addresses">
+              <h5 class="card-title">Addresses</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Name</b> {{add.Name}}</li>
+                <li class="list-group-item"><b>AddressType</b> {{add.AddressType}}</li>
+                <li class="list-group-item"><b>Line1</b> {{add.Line1}}</li>
+                <li class="list-group-item"><b>Line2</b> {{add.Line2}}</li>
+                <li class="list-group-item"><b>PostalCode</b> {{add.PostalCode}}</li>
+                <li class="list-group-item"><b>Country</b> {{add.Country}}</li>
+                <li class="list-group-item"><b>City</b> {{add.City}}</li>
+                <li class="list-group-item"><b>District</b> {{add.District}}</li>
+                <li class="list-group-item"><b>Neighborhood</b> {{add.Neighborhood}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

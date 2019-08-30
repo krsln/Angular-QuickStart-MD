@@ -1,11 +1,96 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          contact works!
-        </div>
+<div class="container bg-white">
+  <br>
+  <app-map-planetary></app-map-planetary>
+
+  <!--Section: Contact v.2-->
+  <section class="section">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-5">Get In Touch With Us</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us
+      directly. Our team will come back to you within
+      matter of hours to help you.</p>
+
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="col-md-9 mb-md-0 mb-5">
+        <form [formGroup]="ContactForm" (ngSubmit)="onSubmit()">
+
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="text" id="Name" [formControlName]="'Name'" class="form-control">
+                <label for="Name" class="">Your name</label>
+              </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="text" id="Email" [formControlName]="'Email'" class="form-control">
+                <label for="Email" class="">Your email</label>
+              </div>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="md-form mb-0">
+                <input type="text" id="Subject" [formControlName]="'Subject'" class="form-control">
+                <label for="Subject" class="">Subject</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+
+              <div class="md-form">
+                <textarea type="text" id="Message" [formControlName]="'Message'" rows="2" class="form-control md-textarea"></textarea>
+                <label for="Message">Your message</label>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="w-100 m-0 btn btn-sm btn-outline-primary waves-effect mb-2">
+              Send <i class="fas fa-save"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="status"></div>
       </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-3 text-center">
+        <ul class="list-unstyled mb-0">
+          <li><i class="fa fa-map-marker fa-2x"></i>
+            <p>New Moonica, NM 0001, Moon</p>
+          </li>
+
+          <li><i class="fa fa-phone mt-4 fa-2x"></i>
+            <p>+ 0007 123 666 42</p>
+          </li>
+
+          <li><i class="fa fa-envelope mt-4 fa-2x"></i>
+            <p>contact@*****:p.com</p>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
     </div>
-  </div>
+
+  </section>
+  <!--Section: Contact v.2-->
+
 </div>

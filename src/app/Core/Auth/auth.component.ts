@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import {AuthService} from './auth.service';
-import {HttpError} from '../Shared/Models';
+import {HttpError} from '../../Shared/Models';
 
 @Component({
   selector: 'app-auth',

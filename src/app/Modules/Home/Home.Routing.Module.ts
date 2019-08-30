@@ -1,10 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {LayoutZeroComponent} from '../../Core/Layouts';
 import {PathResolveService} from '../../Core/Services';
+import {CanDeactivateGuard} from '../../Core/Guards';
+import {LayoutZeroComponent} from '../../Core/Layouts';
+import {ContactComponent, CustomerComponent, HomeComponent} from './Components';
 import {PageNotFoundComponent} from '../../Shared/Components';
-import {ContactComponent, HomeComponent} from './Components';
+import {AuthGuard} from '../../Core/Auth';
+
 
 const routes: Routes = [
   {
@@ -13,11 +16,15 @@ const routes: Routes = [
     children: [
       {path: '', component: HomeComponent, children: []},
       {path: 'Contact', component: ContactComponent},
-      {path: 'Customer', component: ContactComponent},
+      {
+        path: 'Customer', component: CustomerComponent,
+        canActivate: [AuthGuard], canActivateChild: [AuthGuard], canDeactivate: [CanDeactivateGuard]
+      },
       {path: '**', resolve: {path: PathResolveService}, component: PageNotFoundComponent},
     ]
   },
 ];
+
 
 @NgModule({
   imports: [

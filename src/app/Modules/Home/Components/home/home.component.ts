@@ -1,43 +1,40 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {AlertService, SpinnerOverlayService} from '../../../../Core/Services';
-import {ModalComponent} from 'src/app/Shared/Components';
-import {StorageType, WebStorage} from '../../../../Core/Utilities';
-import {NotificationType, NotificationWay} from '../../../../Shared/Models';
-import {AuthService} from '../../../../Auth';
+import {Component, OnInit,  ViewEncapsulation} from '@angular/core';
+import {AlertService, SpinnerService, ModalService} from '../../../../Core/Notifications';
+import {Guid, StorageType, WebStorage} from '../../../../Core/Utilities';
+import {AuthService} from '../../../../Core/Auth';
+import {NotificationType} from '../../../../Core/Notifications/Alerts';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('modal1', {static: true}) modal1: ModalComponent;
 
-  constructor(private alertService: AlertService, private authService: AuthService, private  overlayService: SpinnerOverlayService) {
+  constructor(private alertService: AlertService, private authService: AuthService,
+              private modalService: ModalService, private  spinnerService: SpinnerService) {
   }
 
   ngOnInit() {
-    this.NotificationTest();
+    // this.NotificationTest();
+    const e = Guid.NewGuid();
+    console.log(e); // ​​​​​Guid { Value: 'bb90ef83-1a7e-42b1-90ba-39cdebb6366c' }​​​​​
   }
 
   NotificationTest() {
-    this.alertService.Success('Home ngOnInit Success alert test', 'Success Yay!');
-    // this.alertService.Info('Home ngOnInit Info', 'Congratulations!');
-    // this.alertService.Error('Home ngOnInit Error');
+    this.alertService.Alert('Home ngOnInit Success alert test', 'Success Yay!', 20000, NotificationType.Success);
 
     setTimeout(() => {
-      this.alertService.Alert('Message', 'Title', {Way: NotificationWay.Alert, Type: NotificationType.None});
+      this.alertService.Alert('Message', 'Title!', 5000, NotificationType.None);
     }, 300);
     setTimeout(() => {
-      this.alertService.Alert('Message', 'Title', {Way: NotificationWay.Toast, Type: NotificationType.None});
+      this.alertService.Toast('Message', 'Title!', 9000, NotificationType.None);
     }, 500);
     setTimeout(() => {
-      this.alertService.Toast('Home ngOnInit Toast', 'Toast! 1', 'Right');
+      this.alertService.Toast('Message Toast', 'Toast!', 2000, NotificationType.Success);
     }, 800);
 
-    // this.alertService.WarningToast('Home ngOnInit WarningToast', 'WarningToast! 2');
-    // this.alertService.ErrorToast('Home ngOnInit ErrorToast', 'ErrorToast! 3');
-    // this.alertService.InfoToast('Home ngOnInit InfoToast', 'InfoToast! 4');
   }
 
   Store(where: string, remove: boolean = false) {
@@ -73,14 +70,15 @@ export class HomeComponent implements OnInit {
   }
 
   onLogin() {
-    console.log('Customer login ...');
+    // console.log('Customer login ...');
     this.authService.Login('Krsln', 'p');
     this.authService.User.subscribe(result => {
-      console.log('..: ', result);
+      // console.log('..: ', result);
+      // this.modalService.Show('Customer login', 'you logged in yay!');
     });
-    this.overlayService.show('Test');
+    this.spinnerService.Show('Test');
     setTimeout(() => {
-      this.overlayService.hide();
+      this.spinnerService.Hide();
     }, 2000);
   }
 
@@ -88,9 +86,19 @@ export class HomeComponent implements OnInit {
     WebStorage.Remove(StorageType.Local, 'SaleRequest');
     WebStorage.Remove(StorageType.Local, 'BasketCode');
 
-    console.log('Customer logout ...');
+    // console.log('Customer logout ...');
     this.authService.Logout();
-    this.modal1.Dynamic = {Active: true, TitleContent: 'Customer logout', BodyContent: 'whyyy!', FooterContent: ''};
-    this.modal1.Show();
+    this.modalService.Show('Customer logout', 'whyyy!');
+  }
+
+  onOverlay() {
+    this.spinnerService.Show();
+    setTimeout(() => {
+      this.spinnerService.Hide();
+    }, 3000);
+  }
+
+  GoToCart() {
+    this.modalService.GoToCart();
   }
 }

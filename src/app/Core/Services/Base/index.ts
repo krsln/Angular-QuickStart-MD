@@ -1,4 +1,4 @@
-export * from './Alert.Service';
+export * from './Meta.Service';
+export * from './Logger.Service';
 export * from './Pager.Service';
 export * from './Path.Resolve.Service';
-export * from './Spinner.Overlay.Service';

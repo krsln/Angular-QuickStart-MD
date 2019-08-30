@@ -3,14 +3,14 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 import {AuthComponent, AuthGuard, AuthService, AuthRoutingModule} from './';
-import {SharedModule} from '../Shared/Shared.Module';
+import {SharedModule} from '../../Shared/Shared.Module';
 
 @NgModule({
   declarations: [AuthComponent],
   // exports: [AuthComponent],
   imports: [
-    CommonModule,
-    FormsModule,
+    CommonModule, FormsModule,
+
     AuthRoutingModule,
     SharedModule,
   ],

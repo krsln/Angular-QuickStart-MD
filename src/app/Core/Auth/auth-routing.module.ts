@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {LayoutZeroComponent} from '../Core/Layouts/layout-zero/layout-zero.component';
+import {LayoutZeroComponent} from '../Layouts/layout-zero/layout-zero.component';
 import {AuthComponent} from './auth.component';
 
 const routes: Routes = [
