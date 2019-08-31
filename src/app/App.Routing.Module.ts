@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {LayoutZeroComponent} from './Core/Layouts';
 
 import {PathResolveService} from './Core/Services';
@@ -7,10 +7,11 @@ import {PageNotFoundComponent} from './Shared/Components';
 
 const routes: Routes = [
   // App routes goes here here
+  // Lazy Load the modules
+  {path: 'Home', loadChildren: () => import('./Modules/Home/Home.Module').then(mod => mod.HomeModule)},
+
   {
-    path: '',
-    component: LayoutZeroComponent,
-    children: [
+    path: '', component: LayoutZeroComponent, children: [
       {path: '', redirectTo: '/Home', pathMatch: 'full'},
       {path: '**', resolve: {path: PathResolveService}, component: PageNotFoundComponent},
     ]
@@ -22,7 +23,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       // useHash: true, // Tell the router to use the HashLocationStrategy.
       scrollPositionRestoration: 'enabled', // 'disabled' | 'enabled' | 'top'
-      enableTracing: false
+      enableTracing: false,
+      preloadingStrategy: PreloadAllModules // Lazy Loading strategy
     }),
     // RouterModule.forRoot(appRoutes, {useHash: true}) // http://localhost:6200/#/Home
   ],

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, ViewEncapsulation} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 import {IModalContent, IModalResponse} from '../Models';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -11,7 +11,7 @@ declare var $: any;
   styleUrls: ['./modal.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ModalComponent implements OnInit, OnDestroy {
+export class ModalComponent {
   public ModalContent: IModalContent;
   public visible = false;
   public visibleAnimate = false;
@@ -22,13 +22,6 @@ export class ModalComponent implements OnInit, OnDestroy {
   constructor(private el: ElementRef = null, private router: Router, private route: ActivatedRoute) {
     this.ModalContent = {Active: false, TitleContent: '', BodyContent: '', FooterContent: null};
     // console.log(this.el);
-  }
-
-  ngOnInit() {
-  }
-
-  ngOnDestroy(): void {
-    // console.log('ngOnDestroy', this.Response);
   }
 
   public onContainerClicked(event: MouseEvent): void {

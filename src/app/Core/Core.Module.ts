@@ -1,34 +1,20 @@
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {CanDeactivateGuard} from './Guards';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Layouts';
-import {SharedModule} from '../Shared/Shared.Module';
+// import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Layouts';
 import {AuthInterceptor, TestInterceptor} from './Interceptors';
-import {LoggerService, MetaService, PagerService, PathResolveService, } from './Services';
+import {LoggerService, MetaService, PathResolveService,} from './Services';
 import {AjaxHelper} from './Utilities';
 import {NotificationModule} from './Notifications/notification.module';
-import {AuthModule} from './Auth/auth.module';
+import {PaginationModule} from './Paginations/pagination.module';
 
 @NgModule({
   declarations: [],
   schemas: [NO_ERRORS_SCHEMA],
-  imports: [
-    CommonModule
-
-    , FormsModule // Template driven approach
-    , ReactiveFormsModule
-
-    , AuthModule
-    , NotificationModule
-
-    , SharedModule
-  ],
-  exports: [
-    SharedModule, NotificationModule
-  ],
+  imports: [HttpClientModule, CommonModule, NotificationModule, PaginationModule],
+  exports: [NotificationModule, PaginationModule],
   providers: [
     // Guards
     CanDeactivateGuard
@@ -38,7 +24,6 @@ import {AuthModule} from './Auth/auth.module';
 
     // Services
     , MetaService
-    , PagerService
     , PathResolveService
     , LoggerService
 

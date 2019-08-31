@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CanComponentDeactivate} from '../../../../Core/Guards';
 import {Observable} from 'rxjs';
-import {AuthService} from '../../../../Core/Auth';
+import {AuthService} from '../../../../Auth';
 
 @Component({
   selector: 'app-customer',

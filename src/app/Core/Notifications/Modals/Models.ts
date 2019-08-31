@@ -13,6 +13,9 @@ export class IModalContent {
 }
 
 export class IModalFooter {
-  Text: string;
-  Redirect: { Url: string, Text: string };
+  Text?: string;
+  IsRedirect?: boolean;
+  Redirect?: { Url: string, Text: string };
+  IsPrompt?: boolean;
+
 }

@@ -3,8 +3,8 @@ import {NgForm} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {AuthService} from './auth.service';
-import {HttpError} from '../../Shared/Models';
+import {HttpError} from '../../../Shared/Models';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -13,7 +13,7 @@ import {HttpError} from '../../Shared/Models';
 })
 export class AuthComponent implements OnInit, OnDestroy {
   Subscription: Subscription;
-  SubscriptionError: Subscription;
+  // SubscriptionError: Subscription;
 
   returnUrl: string;
   Model: { Email?: string, Password?: string } = {};
@@ -50,7 +50,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.Subscription) {
       this.Subscription.unsubscribe();
-      this.SubscriptionError.unsubscribe();
+      // this.SubscriptionError.unsubscribe();
     }
   }
 

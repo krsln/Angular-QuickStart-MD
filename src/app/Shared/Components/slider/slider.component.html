@@ -1,0 +1,33 @@
+<div *ngIf="Views" [id]="Id" class="carousel slide" data-ride="carousel">
+  <ol *ngIf="!NoDesc" class="carousel-indicators">
+    <li [attr.data-target]="'#'+Id" *ngFor="let view of Views let i = index"
+        data-slide-to="i" [ngClass]="{'active' : i == 0}"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div *ngFor="let view of Views let i = index" class="carousel-item">
+      <img class="d-block w-100" [src]="view.Source" alt="{{view.Caption}}">
+      <div *ngIf="!NoDesc" class="carousel-caption d-none d-md-block">
+        <h5>{{view.Caption}}</h5>
+        <p>{{view.Source}}</p>
+      </div>
+    </div>
+  </div>
+<!--  <span class="carousel-control-prev" [attr.href]="'#'+Id" role="button" data-slide="prev">-->
+<!--    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--    <span class="sr-only">Previous</span>-->
+<!--  </span>-->
+<!--  <span class="carousel-control-next" [attr.href]="'#'+Id" role="button" data-slide="next">-->
+<!--    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--    <span class="sr-only">Next</span>-->
+<!--  </span>-->
+  <span class="carousel-control-prev" (click)="Prev()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </span>
+  <span class="carousel-control-next" (click)="Next()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </span>
+</div>
+
+<!--[ngClass]="{'active' : i == 0}"-->

@@ -6,12 +6,11 @@ import {CanDeactivateGuard} from '../../Core/Guards';
 import {LayoutZeroComponent} from '../../Core/Layouts';
 import {ContactComponent, CustomerComponent, HomeComponent} from './Components';
 import {PageNotFoundComponent} from '../../Shared/Components';
-import {AuthGuard} from '../../Core/Auth';
-
+import {AuthGuard} from '../../Auth';
 
 const routes: Routes = [
   {
-    path: 'Home',
+    path: '', // Home Removed for Lazy-Loading look: src/App.Routing.Module.ts
     component: LayoutZeroComponent,
     children: [
       {path: '', component: HomeComponent, children: []},
@@ -24,7 +23,6 @@ const routes: Routes = [
     ]
   },
 ];
-
 
 @NgModule({
   imports: [

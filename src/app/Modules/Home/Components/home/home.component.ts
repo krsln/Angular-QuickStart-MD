@@ -1,7 +1,7 @@
-import {Component, OnInit,  ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AlertService, SpinnerService, ModalService} from '../../../../Core/Notifications';
 import {Guid, StorageType, WebStorage} from '../../../../Core/Utilities';
-import {AuthService} from '../../../../Core/Auth';
+import {AuthService} from '../../../../Auth';
 import {NotificationType} from '../../../../Core/Notifications/Alerts';
 
 @Component({
@@ -76,9 +76,9 @@ export class HomeComponent implements OnInit {
       // console.log('..: ', result);
       // this.modalService.Show('Customer login', 'you logged in yay!');
     });
-    this.spinnerService.Show('Test');
+    const spinnerId = this.spinnerService.Show(false, 'Test');
     setTimeout(() => {
-      this.spinnerService.Hide();
+      this.spinnerService.Hide(spinnerId);
     }, 2000);
   }
 
@@ -92,9 +92,9 @@ export class HomeComponent implements OnInit {
   }
 
   onOverlay() {
-    this.spinnerService.Show();
+    const id = this.spinnerService.Show(true);
     setTimeout(() => {
-      this.spinnerService.Hide();
+      this.spinnerService.Hide(id);
     }, 3000);
   }
 

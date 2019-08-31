@@ -24,15 +24,19 @@
           </button>
         </div>
         <div class="modal-body" [innerHtml]="ModalContent.BodyContent"></div>
-        <div class="modal-footer">
-          {{ModalContent.FooterContent.Text}}
-          <ng-container *ngIf="ModalContent.FooterContent.Redirect">
+        <div class="modal-footer" *ngIf="ModalContent.FooterContent">
+          <span *ngIf="ModalContent.FooterContent.Text">{{ModalContent.FooterContent.Text}}</span>
+          <ng-container *ngIf="ModalContent.FooterContent.IsRedirect">
             <button type="button" class="btn btn-primary"
                     (click)="onCloseConfirmRedirect(ModalContent.FooterContent.Redirect.Url);">
               {{ModalContent.FooterContent.Redirect.Text}}
             </button>
+            <button type="button" class="btn btn-outline-secondary" (click)="Hide()">Close</button>
           </ng-container>
-          <button type="button" class="btn btn-outline-secondary" (click)="Hide()">Close</button>
+          <ng-container *ngIf="ModalContent.FooterContent.IsPrompt">
+            <button type="button" class="btn btn-primary" (click)="onCloseConfirm();">Yes</button>
+            <button type="button" class="btn btn-default" (click)="onCloseCancel(); Hide()">Cancel</button>
+          </ng-container>
         </div>
       </ng-container>
 

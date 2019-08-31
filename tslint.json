@@ -25,6 +25,11 @@
       true,
       "rxjs/Rx"
     ],
+    "align": [
+      true,
+      // "parameters",
+      "statements"
+    ],
     "interface-name": false,
     "max-classes-per-file": false,
     "max-line-length": [

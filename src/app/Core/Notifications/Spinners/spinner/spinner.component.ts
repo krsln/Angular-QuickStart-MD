@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Guid} from '../../../Utilities';
 
 @Component({
   selector: 'app-spinner',
@@ -7,7 +8,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SpinnerComponent implements OnInit {
   @Input() message = '';
-  constructor() { }
+  Id = 'Spinner_' + Guid.NewGuid().ToString();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

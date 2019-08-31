@@ -4,9 +4,8 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './App.Routing.Module';
 import {AppComponent} from './app.component';
 import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Core/Layouts';
-import {HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './Core/Core.Module';
-import {HomeModule} from './Modules/Home/Home.Module';
+import {AuthModule} from './Auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -17,14 +16,13 @@ import {HomeModule} from './Modules/Home/Home.Module';
     FooterComponent,
   ],
   imports: [
-    BrowserModule
-    , HttpClientModule// import HttpClientModule after BrowserModule.
-    // , CommonModule
-    // , FormsModule // Template driven approach
-    // , ReactiveFormsModule
+    // Add .withServerTransition() to support Universal rendering.
+    // The application ID can be any identifier which is unique on
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
 
-    , CoreModule
-    , HomeModule
+    AuthModule, CoreModule
+
+    // , HomeModule
 
     , AppRoutingModule
   ],

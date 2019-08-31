@@ -1,14 +1,15 @@
-<app-page-error [Error]="Error"></app-page-error>
-
-<ng-container *ngIf="IsLoading">
-  <app-spinner-overlay></app-spinner-overlay>
-</ng-container>
+<!--<ng-container *ngIf="IsLoading">-->
+<!--  <app-spinner-overlay></app-spinner-overlay>-->
+<!--</ng-container>-->
 <br>
 <br>
 <div class="container">
   <div class="row justify-content-center">
-
-    <div *ngIf="!IsLoading&&!(Error&&Error.Type!=='Response')" class="col-12 col-md-6">
+    <div class="col-12">
+      <app-alert></app-alert>
+    </div>
+    <!--<div *ngIf="!IsLoading&&!(Error&&Error.Type!=='Response')" class="col-12 col-md-6">-->
+    <div class="col-12 col-md-6">
 
       <div class="card">
         <div class="card-body">

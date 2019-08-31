@@ -13,7 +13,7 @@ import {Observable, of, throwError} from 'rxjs';
 import {catchError, exhaustMap, map, take, tap} from 'rxjs/operators';
 import {TransferState, makeStateKey, StateKey} from '@angular/platform-browser';
 import {isPlatformServer} from '@angular/common';
-import {AuthService} from '../Auth';
+import {AuthService} from '../../Auth';
 
 @Injectable({
   providedIn: 'root'

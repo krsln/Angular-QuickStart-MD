@@ -1,31 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import {HomeRoutingModule} from './Home.Routing.Module';
 import {SharedModule} from '../../Shared/Shared.Module';
-import {ContactComponent, CustomerComponent, HomeComponent } from './Components';
+import {ContactComponent, CustomerComponent, HomeComponent, MapPlanetaryComponent} from './Components';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    ContactComponent,
-    CustomerComponent,
-  ],
-  exports: [
-    HomeComponent,
-    ContactComponent,
-    CustomerComponent,
-  ],
-  imports: [
-    CommonModule
-
-    , FormsModule // Template driven approach
-    , ReactiveFormsModule
-
-    , HomeRoutingModule
-    , SharedModule
-  ],
+  declarations: [HomeComponent, ContactComponent, CustomerComponent, MapPlanetaryComponent],
+  exports: [],
+  imports: [CommonModule, ReactiveFormsModule, HomeRoutingModule, SharedModule],
   providers: []
 })
 export class HomeModule {

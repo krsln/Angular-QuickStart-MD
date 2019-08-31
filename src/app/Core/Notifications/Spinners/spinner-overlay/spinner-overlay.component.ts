@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Guid} from '../../../Utilities';
 
 @Component({
   selector: 'app-spinner-overlay',
@@ -7,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SpinnerOverlayComponent implements OnInit {
   @Input() public message: string;
+  Id = 'Spinner_' + Guid.NewGuid().ToString();
 
   constructor() {
   }

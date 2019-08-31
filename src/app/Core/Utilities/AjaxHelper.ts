@@ -9,7 +9,7 @@ import {ajax} from 'rxjs/ajax';
 export class AjaxHelper {
 
   /// TODO: Log!
-
+  /// FIXME: [CatchError] when plan html came its breaks! try/catch doesnt work!
   static HandleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

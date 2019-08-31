@@ -1,0 +1,21 @@
+<!-- pager -->
+<nav *ngIf="pager.pages && pager.pages.length" aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+      <a class="page-link" (click)="setPage(1)"><i class="fas fa-angle-double-left"></i></a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+      <a class="page-link" (click)="setPage(pager.currentPage - 1)"><i class="fas fa-angle-left"></i></a>
+    </li>
+    <li *ngFor="let page of pager.pages" class="page-item" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)" class="page-link">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+      <a class="page-link" (click)="setPage(pager.currentPage + 1)"><i class="fas fa-angle-right"></i></a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+      <a class="page-link" (click)="setPage(pager.totalPages)"><i class="fas fa-angle-double-right"></i> </a>
+    </li>
+  </ul>
+</nav>
+

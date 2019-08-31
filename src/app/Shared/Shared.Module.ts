@@ -1,14 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {BrowserModule} from '@angular/platform-browser';
 
 import {FileSizePipe, FilterPipe, SanitizeHtmlPipe, TruncatePipe} from './Pipes';
-import {
-  PageErrorComponent,
-  PageNotFoundComponent,
-} from './Components';
+import {SliderComponent, PageNotFoundComponent} from './Components';
+import {PaginationModule} from '../Core/Paginations/pagination.module';
 
 @NgModule({
   declarations: [
@@ -22,14 +19,13 @@ import {
 
     /* Components */
     PageNotFoundComponent,
-    PageErrorComponent,
+    SliderComponent,
   ],
   imports: [
     CommonModule
-    , BrowserModule
     , RouterModule
     , ReactiveFormsModule
-    , FormsModule
+    , PaginationModule
   ],
   providers: [],
   exports: [
@@ -45,7 +41,7 @@ import {
 
     /* Components */
     PageNotFoundComponent,
-    PageErrorComponent,
+    SliderComponent,
   ]
 })
 export class SharedModule {
