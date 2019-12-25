@@ -1,6 +1,6 @@
 <!--Navbar -->
 <nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" [routerLink]="['/Home']">Yay!</a>
+  <a class="navbar-brand" [routerLink]="['/Home']">NgQuickStart</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
           aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,16 +8,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a [routerLink]="['/Flight']" class="nav-link">Flight</a>
+        <a [routerLink]="['/Test']" class="nav-link">Test</a>
       </li>
       <li class="nav-item dropdown" [routerLinkActive]="'active'">
         <a appDropdown class="nav-link dropdown-toggle" role="button" id="navbarDropdown"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Tour
+          Test
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a [routerLink]="['/Tour']" class="dropdown-item">Tour</a>
-          <a [routerLink]="['/Tour/Details',1]" class="dropdown-item">Tour/Details/1</a>
+          <a [routerLink]="['/Test']" class="dropdown-item">Test</a>
+          <a [routerLink]="['/Test/Details',1]" class="dropdown-item">Test/Details/1</a>
         </div>
       </li>
     </ul>

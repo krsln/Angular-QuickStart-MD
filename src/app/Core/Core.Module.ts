@@ -3,7 +3,6 @@ import {CanDeactivateGuard} from './Guards';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 
-// import {FooterComponent, HeaderComponent, LayoutZeroComponent} from './Layouts';
 import {AuthInterceptor, TestInterceptor} from './Interceptors';
 import {LoggerService, MetaService, PathResolveService,} from './Services';
 import {AjaxHelper} from './Utilities';

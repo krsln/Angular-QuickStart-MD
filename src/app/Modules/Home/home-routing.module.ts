@@ -1,17 +1,15 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-
-import {PathResolveService} from '../../Core/Services';
-import {CanDeactivateGuard} from '../../Core/Guards';
-import {LayoutZeroComponent} from '../../Core/Layouts';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import {ContactComponent, CustomerComponent, HomeComponent} from './Components';
-import {PageNotFoundComponent} from '../../Shared/Components';
 import {AuthGuard} from '../../Auth';
+import {CanDeactivateGuard} from '../../Core/Guards';
+import {PathResolveService} from '../../Core/Services/Base';
+import {PageNotFoundComponent} from '../../Shared/Components';
 
 const routes: Routes = [
   {
     path: '', // Home Removed for Lazy-Loading look: src/App.Routing.Module.ts
-    component: LayoutZeroComponent,
+    // component: LayoutZeroComponent,
     children: [
       {path: '', component: HomeComponent, children: []},
       {path: 'Contact', component: ContactComponent},
@@ -25,12 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    // RouterModule.forChild(appRoutes, {useHash: true}) // http://localhost:6200/#/Home
-  ],
-  exports: [RouterModule],
-  declarations: []
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class HomeRoutingModule {
-}
+export class HomeRoutingModule { }

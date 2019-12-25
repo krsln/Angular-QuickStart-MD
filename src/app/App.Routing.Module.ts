@@ -1,17 +1,20 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-import {LayoutZeroComponent} from './Core/Layouts';
 
 import {PathResolveService} from './Core/Services';
 import {PageNotFoundComponent} from './Shared/Components';
+import {LayoutZeroComponent as Layout} from './Layouts/layout-zero/layout-zero.component';
 
 const routes: Routes = [
   // App routes goes here here
   // Lazy Load the modules
-  {path: 'Home', loadChildren: () => import('./Modules/Home/Home.Module').then(mod => mod.HomeModule)},
+  {
+    path: 'Home', component: Layout,
+    loadChildren: () => import('./Modules/Home/home.module').then(mod => mod.HomeModule)
+  },
 
   {
-    path: '', component: LayoutZeroComponent, children: [
+    path: '', component: Layout, children: [
       {path: '', redirectTo: '/Home', pathMatch: 'full'},
       {path: '**', resolve: {path: PathResolveService}, component: PageNotFoundComponent},
     ]
